@@ -46,14 +46,14 @@ int main (void)
 			{
 				case 1:
 				    //O números de vendas não deve exceder 144, já que só existem 144 poltronas para serem vendidas
-				    if (total_venda < TOTAL)
+				    	if (total_venda < TOTAL)
                     			{
                         			venda(matriz);
                         			total_venda++;
                     			}
-                    		else
-                        		printf("Vendas esgotadas \n");
-					break;
+                    			else
+                        			printf("Vendas esgotadas \n");
+						break;
 				case 2:
 				    //exibe todos os passageiros com RG e posição, respectivamente
 					listar_passageiros(matriz);
