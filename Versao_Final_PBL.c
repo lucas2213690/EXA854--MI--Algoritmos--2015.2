@@ -1,13 +1,13 @@
 /****************************************************************************************
 
-Autor: Lucas Alves da EncarnaÁ„o Oliveira
+Autor: Lucas Alves da Encarna√ß√£o Oliveira
 Componente Curricular : MI - Algoritmos I
 Concluido em: 27/02/2016
-Declaro que este cÛdigo foi elaborado por mim de forma individual e n„o contÈm nenhum
-trecho de cÛdigo de outro colega ou de outro autor, tais como provindos de livros e
-apostilas, e p·ginas ou documentos eletrÙnicos da Internet, qualquer trecho de cÛdigo
-de outra autoria que n„o a minha est· destacado com uma citaÁ„o para o autor e a fonte
-do cÛdigo, e estou ciente que estes trechos n„o ser·o considerados para fins de avaliaÁ„o
+Declaro que este c√≥digo foi elaborado por mim de forma individual e n√£o cont√©m nenhum
+trecho de c√≥digo de outro colega ou de outro autor, tais como provindos de livros e
+apostilas, e p√°ginas ou documentos eletr√¥nicos da Internet, qualquer trecho de c√≥digo
+de outra autoria que n√£o a minha est√° destacado com uma cita√ß√£o para o autor e a fonte
+do c√≥digo, e estou ciente que estes trechos n√£o ser√°o considerados para fins de avalia√ß√£o
 
 *****************************************************************************************/
 
@@ -32,7 +32,7 @@ int main (void)
 		int escolha=0;
 		struct passageiro matriz[6][24];
 		iniciar(matriz);
-		while (true) //loop infinito, a ˙nica condiÁ„o de parada È o RG -1 na funÁ„o Venda
+		while (true) //loop infinito, a √∫nica condi√ß√£o de parada √© o RG -1 na fun√ß√£o Venda
 		{
 			printf("####################################  \n");
             printf("#  Escolha 1 p/ Venda		       #  \n");
@@ -45,7 +45,7 @@ int main (void)
 			switch (escolha)
 			{
 				case 1:
-				    //O n˙meros de vendas n„o deve exceder 144, j· que sÛ existem 144 poltronas para serem vendidas
+				    //O n√∫meros de vendas n√£o deve exceder 144, j√° que s√≥ existem 144 poltronas para serem vendidas
 				    if (total_venda < TOTAL)
                     {
                         venda(matriz);
@@ -55,11 +55,11 @@ int main (void)
                         printf("Vendas esgotadas \n");
 					break;
 				case 2:
-				    //exibe todos os passageiros com RG e posiÁ„o, respectivamente
+				    //exibe todos os passageiros com RG e posi√ß√£o, respectivamente
 					listar_passageiros(matriz);
 					break;
 				case 3:
-				    //exibe a quantidade de poltronas disponÌveis e ocupadas
+				    //exibe a quantidade de poltronas dispon√≠veis e ocupadas
 					listar_poltronas(matriz);
 					break;
 				case 4:
@@ -91,8 +91,8 @@ void venda(struct passageiro matriz [][24])
 	printf(" Digite a fileira (A, B, C, D, E ou F) \n ");
 	fflush(stdin);
 	scanf("%c",&letra);
-	l = conversor(letra); //funÁ„o que converte a letra para seu respectivo correspondente
-	while (l<1 || l>6)// validaÁ„o da fileira
+	l = conversor(letra); //fun√ß√£o que converte a letra para seu respectivo correspondente
+	while (l<1 || l>6)// valida√ß√£o da fileira
     {
         printf("Letra Invalida, digite novamente \n");
         fflush(stdin);
@@ -101,12 +101,12 @@ void venda(struct passageiro matriz [][24])
     }
     printf("Digite a poltrona entre 1 e 24 \n");
 	scanf("%d",&c);
-	while (c<1 || c>24) // validaÁ„o poltrona
+	while (c<1 || c>24) // valida√ß√£o poltrona
     {
         printf("Numero invalido, digite novamente ");
         scanf("%d",&c);
     }
-	while (matriz[l-1][c-1].poltrona != 0 ) // validaÁ„o disponibilidade
+	while (matriz[l-1][c-1].poltrona != 0 ) // valida√ß√£o disponibilidade
 	{
 		printf(" Assento Ocupado \n");
 		printf(" Digite a fileira (A, B, C, D, E ou F) n \n ");
@@ -130,7 +130,7 @@ void venda(struct passageiro matriz [][24])
 	}
 	printf(" Digite o seu RG \n");
 	scanf("%d", &aux);
-	if (aux == -1) // condiÁ„o de saida do loop infinito
+	if (aux == -1) // condi√ß√£o de saida do loop infinito
 		exit(0);
 	else
 		matriz[l-1][c-1].rg = aux;
@@ -195,7 +195,7 @@ int conversor(char letra)
 char desconversor(int l)
 {
     char letra;
-			    switch (l)
+		switch (l)
                 {
                     case 1:
                         letra = 'A';
