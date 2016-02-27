@@ -31,7 +31,7 @@ int main (void)
 	    int total_venda = 0;
 		int escolha=0;
 		struct passageiro matriz[6][24];
-		iniciar(matriz);
+		iniciar(matriz); //deve-se zerar a matriz ao iniciar
 		while (true) //loop infinito, a única condição de parada é o RG -1 na função Venda
 		{
 			printf("####################################  \n");
