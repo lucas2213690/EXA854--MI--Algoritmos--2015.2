@@ -28,7 +28,7 @@ char desconversor(int);
 
 int main (void)
 	{
-	    int total_venda = 0;
+	    	int total_venda = 0;
 		int escolha=0;
 		struct passageiro matriz[6][24];
 		iniciar(matriz); //deve-se zerar a matriz ao iniciar
@@ -84,7 +84,7 @@ void iniciar(struct passageiro matriz [][24])
 }
 void venda(struct passageiro matriz [][24])
 {
-    char letra;
+    	char letra;
 	int aux;
 	int l=0;
 	int c=0;
@@ -195,26 +195,26 @@ int conversor(char letra)
 char desconversor(int l)
 {
     char letra;
-		switch (l)
-                {
-                    case 1:
-                        letra = 'A';
-                        break;
-                    case 2:
-                        letra = 'B';
-                        break;
-                    case 3:
-                        letra = 'C';
-                        break;
-                    case 4:
-                        letra = 'D';
-                        break;
-                    case 5:
-                        letra = 'E';
-                        break;
-                    case 6:
-                        letra = 'F';
-                        break;
+	switch (l)
+       	{
+        	case 1:
+              	letra = 'A';
+                break;
+           	case 2:
+                letra = 'B';
+                break;
+            case 3:
+               	letra = 'C';
+                break;
+            case 4:
+                letra = 'D';
+                break;
+            case 5:
+                letra = 'E';
+                break;
+            case 6:
+                letra = 'F';
+                break;
                 }
     return (letra);
 }
