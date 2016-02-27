@@ -35,11 +35,11 @@ int main (void)
 		while (true) //loop infinito, a única condição de parada é o RG -1 na função Venda
 		{
 			printf("####################################  \n");
-            printf("#  Escolha 1 p/ Venda		       #  \n");
-            printf("#  Escolha 2 p/ Listar Passageiros #  \n");
-            printf("#  Escolha 3 p/ Listar Poltronas   #  \n");
-            printf("#  Escolha 4 p/ Reiniciar          #  \n");
-            printf("####################################  \n");
+            		printf("#  Escolha 1 p/ Venda		       #  \n");
+            		printf("#  Escolha 2 p/ Listar Passageiros #  \n");
+            		printf("#  Escolha 3 p/ Listar Poltronas   #  \n");
+            		printf("#  Escolha 4 p/ Reiniciar          #  \n");
+            		printf("####################################  \n");
 
 			scanf("%d",&escolha);
 			switch (escolha)
@@ -47,12 +47,12 @@ int main (void)
 				case 1:
 				    //O números de vendas não deve exceder 144, já que só existem 144 poltronas para serem vendidas
 				    if (total_venda < TOTAL)
-                    {
-                        venda(matriz);
-                        total_venda++;
-                    }
-                    else
-                        printf("Vendas esgotadas \n");
+                    			{
+                        			venda(matriz);
+                        			total_venda++;
+                    			}
+                    		else
+                        		printf("Vendas esgotadas \n");
 					break;
 				case 2:
 				    //exibe todos os passageiros com RG e posição, respectivamente
@@ -93,40 +93,40 @@ void venda(struct passageiro matriz [][24])
 	scanf("%c",&letra);
 	l = conversor(letra); //função que converte a letra para seu respectivo correspondente
 	while (l<1 || l>6)// validação da fileira
-    {
-        printf("Letra Invalida, digite novamente \n");
-        fflush(stdin);
-        scanf("%c",&letra);
-        l = conversor(letra);
-    }
-    printf("Digite a poltrona entre 1 e 24 \n");
+    	{
+        	printf("Letra Invalida, digite novamente \n");
+        	fflush(stdin);
+        	scanf("%c",&letra);
+        	l = conversor(letra);
+    	}
+    	printf("Digite a poltrona entre 1 e 24 \n");
 	scanf("%d",&c);
 	while (c<1 || c>24) // validação poltrona
-    {
-        printf("Numero invalido, digite novamente ");
-        scanf("%d",&c);
-    }
+    	{
+        	printf("Numero invalido, digite novamente ");
+        	scanf("%d",&c);
+    	}
 	while (matriz[l-1][c-1].poltrona != 0 ) // validação disponibilidade
 	{
 		printf(" Assento Ocupado \n");
 		printf(" Digite a fileira (A, B, C, D, E ou F) n \n ");
 		fflush(stdin);
-        scanf(" %c",&letra);
+        	scanf(" %c",&letra);
 		l = conversor(letra);
 		while (l<1 || l>6)
-        {
-            printf("Letra Invalida, digite novamente \n");
-            fflush(stdin);
-            scanf("%c",&letra);
-            l = conversor(letra);
-        }
-        printf("Digite a poltrona entre 1 e 24 \n");
+        	{
+            		printf("Letra Invalida, digite novamente \n");
+        	 	fflush(stdin);
+            		scanf("%c",&letra);
+            		l = conversor(letra);
+        	}
+        	printf("Digite a poltrona entre 1 e 24 \n");
 		scanf("%d",&c);
 		while (c<1 || c>24)
-        {
-            printf("Numero invalido, digite novamente \n");
-            scanf("%d",&c);
-        }
+        	{
+            		printf("Numero invalido, digite novamente \n");
+            		scanf("%d",&c);
+        	}
 	}
 	printf(" Digite o seu RG \n");
 	scanf("%d", &aux);
