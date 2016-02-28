@@ -35,7 +35,7 @@ int main (void)
 		while (true) //loop infinito, a única condição de parada é o RG -1 na função Venda
 		{
 			printf("####################################  \n");
-            		printf("#  Escolha 1 p/ Venda		       #  \n");
+            		printf("#  Escolha 1 p/ Venda		   #  \n");
             		printf("#  Escolha 2 p/ Listar Passageiros #  \n");
             		printf("#  Escolha 3 p/ Listar Poltronas   #  \n");
             		printf("#  Escolha 4 p/ Reiniciar          #  \n");
@@ -53,7 +53,7 @@ int main (void)
                     			}
                     			else
                         			printf("Vendas esgotadas \n");
-						break;
+					break;
 				case 2:
 				    //exibe todos os passageiros com RG e posição, respectivamente
 					listar_passageiros(matriz);
