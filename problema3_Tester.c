@@ -41,11 +41,6 @@ int main(void)
 	    }
 	}
 return 0;
-
-
-
-
-return 0;
 }
 void desconversor(char nome[],int sigla)
 {
