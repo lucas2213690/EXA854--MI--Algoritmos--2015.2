@@ -8,7 +8,7 @@
 #define HORA 24
 
 typedef struct_dados{	// Estrutura de Dados de Entrada
-	// a hora nao È armazenada, j· que tem um indice para isso
+	// a hora nao √© armazenada, j√° que tem um indice para isso
     float temp;
     float pressao;
     float umidade;
@@ -21,7 +21,7 @@ typedef struct_saida{		//Estrutura de Dados de Saida
 	int cidade;
 }saida;
 
-void selection_sort(saida [])
+void selection_sort(saida []);
 void leitura(dados [][DIA][HORA], int,char [],char []);
 void temp_minima(dados [][DIA][HORA], int);
 void temp_media(dados [][DIA][HORA], int);
@@ -46,7 +46,7 @@ int main (void)
 		printf(" 1 - Importar dados	\n");
 		printf(" 2 - Exportar dados	\n");
 		printf(" 3 - Consultar		\n");
-		printf(" 4 - MÈdias Di·rias	\n");
+		printf(" 4 - M√©dias Di√°rias	\n");
 		printf(" 5 - Sair		\n");
 		printf("######################	\n");
 		scanf("%d",&escolha);
@@ -75,20 +75,20 @@ int main (void)
 				printf("Arquivos gerados com sucesso\n");
 				break;
 			case 3:
-				printf("Informe a sigla, o dia e a hora que deseja consultar, separado por um espaÁo\n");
+				printf("Informe a sigla, o dia e a hora que deseja consultar, separado por um espa√ßo\n");
 				printf("Exemplo: SSA 13 22");
 				__fpurge(stdin)
 				scanf("%s %d %d",sigla ,&dia ,&hora);
 				consulta(sigla,dia,hora);
 				break;
 			case 4:
-				printf("Digite o dia em que deseja gerar as mÈdias");
+				printf("Digite o dia em que deseja gerar as m√©dias");
 				scanf("%d",&dia_media);
 				medias(dados matriz[][DIA][HORA], dia_media);
 			case 5:
 				return 0;
 			default:
-				printf("Comando Inv·lido \n");
+				printf("Comando Inv√°lido \n");
 				break;
 		}
 	}
@@ -110,7 +110,7 @@ void leitura(dados matriz[][DIA][HORA], int count,char dia[],char mes[])  // tes
 
 		file = fopen(nome_arquivo, "r");
 		if (file == NULL){
-			printf("Arquivo n„o encontrado");
+			printf("Arquivo n√£o encontrado");
 			exit(1);
 		}
 		while( (fscanf(file,"%d %f %f %f %f %f %s\n", &aux, &matriz[cidade][count][hora].temp, &matriz[cidade][count][hora].pressao, &matriz[cidade][count][hora].umidade,&matriz[cidade][count][hora].prec, &matriz[cidade][count][hora].km, matriz[cidade][count][hora].vento))!=EOF ){
@@ -124,7 +124,7 @@ void leitura(dados matriz[][DIA][HORA], int count,char dia[],char mes[])  // tes
 void consulta(char sigla[3], int dia, int hora)
 {
 	int cidade = conversor(sigla);
-	printf("Temperatura: |%f|,  Press„o Atmosferica: |%f|,  Umidade: |%f|,  PrecipitaÁ„o: |%f|, Km: |%f|,  Vento:  |%s|",matriz[cidade][dia][hora].temp,matriz[cidade][dia][hora].pressao,matriz[cidade][dia][hora].umidade,matriz[cidade][dia][hora].prec,matriz[cidade][dia][hora].km,matriz[cidade][dia][hora].vento);
+	printf("Temperatura: |%f|,  Press√£o Atmosferica: |%f|,  Umidade: |%f|,  Precipita√ß√£o: |%f|, Km: |%f|,  Vento:  |%s|",matriz[cidade][dia][hora].temp,matriz[cidade][dia][hora].pressao,matriz[cidade][dia][hora].umidade,matriz[cidade][dia][hora].prec,matriz[cidade][dia][hora].km,matriz[cidade][dia][hora].vento);
 
 }
 void temp_minima(dados matriz[][DIA][HORA], int dia_escolhido)
@@ -334,7 +334,7 @@ void selection_sort(saida vet[])
 		aux = a[i].temp;
 		a[i].temp = a[min].temp;
 		a[min].temp = aux;
-		//o campo CIDADE tambÈm acompanha a troca para nao se perder
+		//o campo CIDADE tamb√©m acompanha a troca para nao se perder
 		aux = a[i].cidade;
 		a[i].cidade = a[min].cidade;
 		a[min].cidade = aux;
