@@ -1,4 +1,4 @@
-/****************************************************************************************
+ /****************************************************************************************
 Autor: Lucas Alves da Encarnação Oliveira
 Componente Curricular : MI - Algoritmos I
 Concluido em: XX/04/2016
@@ -80,7 +80,7 @@ int main (void)
 
 				break;
 			case 2:
-				printf("Digite de qual dia deseja exportar os dados");
+				printf("Digite de qual dia deseja exportar os dados \n");
 				scanf("%d",&dia);
 				temp_minima(matriz, dia);
 				temp_max(matriz, dia);
@@ -89,15 +89,16 @@ int main (void)
 				break;
 			case 3:
 				printf("Informe a sigla, o dia e a hora que deseja consultar, separado por um espaco\n");
-				printf("Exemplo: SSA 13 22");
+				printf("Exemplo: SSA 13 22 \n");
 				__fpurge(stdin);
 				scanf("%s %d %d",sigla ,&dia ,&hora);
 				consulta(matriz, sigla, dia, hora);
 				break;
 			case 4:
-				printf("Digite o dia em que deseja gerar as medias");
+				printf("Digite o dia em que deseja gerar as medias \n");
 				scanf("%d",&dia);
 				medias(matriz, dia);
+				break;
 			case 5:
 				return 0;
 			default:
@@ -123,12 +124,18 @@ void leitura(struct dados matriz[][DIA][HORA], int count,char dia[],char mes[]) 
 
 		file = fopen(nome_arquivo, "r");
 		if (file == NULL){
-			printf("Arquivo nao encontrado");
+			printf("Arquivo nao encontrado \n");
 			exit(1);
 		}
-		while( (fscanf(file,"%d %f %f %f %f %f %s\n", &aux, &matriz[i][count][hora].temp, &matriz[i][count][hora].pressao, &matriz[i][count][hora].umidade,&matriz[i][count][hora].prec, &matriz[i][count][hora].km, matriz[i][count][hora].vento))!=EOF ){
-		hora++;
-	}
+		
+		//for(hora = 0; hora < 24; hora++)
+		//  fscanf(file,"%d %f %f %f %f %f %s\n", &aux, &matriz[i][count][hora].temp, &matriz[i][count][hora].pressao, &matriz[i][count][hora].umidade,&matriz[i][count][hora].prec, &matriz[i][count][hora].km, matriz[i][count][hora].vento);
+		  
+		  
+		 while( (fscanf(file,"%d %f %f %f %f %f %s\n", &aux, &matriz[i][count][hora].temp, &matriz[i][count][hora].pressao, &matriz[i][count][hora].umidade,&matriz[i][count][hora].prec, &matriz[i][count][hora].km, matriz[i][count][hora].vento))!=EOF ){
+		 hora++;
+		}
+	hora = 0;
 	fclose(file);
 
 	}
@@ -137,7 +144,7 @@ void leitura(struct dados matriz[][DIA][HORA], int count,char dia[],char mes[]) 
 void consulta(struct dados matriz[][DIA][HORA], char sigla[3], int dia, int hora)
 {
 	int cidade = conversor(sigla);
-	printf("Temperatura: |%f|,  Pressao Atmosferica: |%f|,  Umidade: |%f|,  Precipitacao: |%f|, Km: |%f|,  Vento:  |%s|",matriz[cidade][dia][hora].temp,matriz[cidade][dia][hora].pressao,matriz[cidade][dia][hora].umidade,matriz[cidade][dia][hora].prec,matriz[cidade][dia][hora].km,matriz[cidade][dia][hora].vento);
+	printf("Temperatura: |%.2f|,  Pressao Atmosferica: |%.2f|,  Umidade: |%.2f|,  Precipitacao: |%.2f|, Km: |%.2f|,  Vento:  |%s| \n\n",matriz[cidade][dia - 1][hora].temp, matriz[cidade][dia - 1][hora].pressao, matriz[cidade][dia - 1][hora].umidade, matriz[cidade][dia - 1][hora].prec, matriz[cidade][dia - 1][hora].km, matriz[cidade][dia - 1][hora].vento);
 
 }
 void temp_minima(struct dados matriz[][DIA][HORA], int dia_escolhido)
@@ -157,11 +164,11 @@ void temp_minima(struct dados matriz[][DIA][HORA], int dia_escolhido)
 	}
 	for(c = 0;c < 10; c++)
 	{
-		minima = matriz[c][dia_escolhido][0].temp;
+		minima = matriz[c][dia_escolhido - 1][0].temp;
 		for(h = 0; h < 24; h++)
 		{
-			if (matriz[c][dia_escolhido][h].temp < minima)
-				minima = matriz[c][dia_escolhido][h].temp;
+			if (matriz[c][dia_escolhido - 1][h].temp < minima)
+				minima = matriz[c][dia_escolhido - 1][h].temp;
 		}
 		vet[c].temp = minima;
 	}
@@ -172,7 +179,7 @@ void temp_minima(struct dados matriz[][DIA][HORA], int dia_escolhido)
 	for(c = 0;c < 10; c++)
 	{
 		desconversor(nome,vet[c].cidade);
-		fprintf(file,"%s %.2f \n", nome,vet[c].temp);	//Escreve a sigla da cidade e a temperatura media
+		fprintf(file,"%s %.2f \n", nome, vet[c].temp);	//Escreve a sigla da cidade e a temperatura media
 	}
 	fclose(file);
 }
@@ -203,7 +210,7 @@ void temp_media(struct dados matriz[][DIA][HORA], int dia_escolhido)
 	for(c = 0;c < 10; c++)
 	{
 		desconversor(nome, vet[c].cidade);
-		fprintf(file,"%s %.2f \n",nome,vet[c].temp/24);	//Escreve a sigla da cidade e a temperatura media
+		fprintf(file,"%s %.2f \n",nome, vet[c].temp/24);	//Escreve a sigla da cidade e a temperatura media
 	}
 	fclose(file);
 }
@@ -224,11 +231,11 @@ void temp_max(struct dados matriz[][DIA][HORA], int dia_escolhido)
 	}
 	for(c = 0;c < 10; c++)
 	{
-		maxima = matriz[c][dia_escolhido][0].temp;
+		maxima = matriz[c][dia_escolhido - 1][0].temp;
 		for(h = 0;h < 24; h++)
 		{
-			if (matriz[c][dia_escolhido][h].temp > maxima)
-				maxima = matriz[c][dia_escolhido][h].temp;
+			if (matriz[c][dia_escolhido - 1][h].temp > maxima)
+				maxima = matriz[c][dia_escolhido - 1][h].temp;
 		}
 		vet[c].temp = maxima;
 	}
@@ -239,7 +246,7 @@ void temp_max(struct dados matriz[][DIA][HORA], int dia_escolhido)
 	for(c = 0; c < 10; c++)
 	{
 		desconversor(nome,vet[c].cidade);
-		fprintf(file,"%s %.2f \n",nome,vet[c].temp);	//Escreve a sigla da cidade e a temperatura media
+		fprintf(file,"%s %.2f \n",nome, vet[c].temp);	//Escreve a sigla da cidade e a temperatura media
 	}
 	fclose(file);
 
@@ -248,7 +255,7 @@ void temp_max(struct dados matriz[][DIA][HORA], int dia_escolhido)
 void medias(struct dados matriz[][DIA][HORA], int dia)
 {
 	FILE *file;
-	char sigla[3];
+	char sigla[5];
 	int i;
 	int h;
 	float media_temp = 0;
@@ -261,13 +268,16 @@ void medias(struct dados matriz[][DIA][HORA], int dia)
 	    desconversor(sigla, i);
 	    for(h = 0; h < 24; h++)
 	    {
-	      media_temp += matriz[i][dia][h].temp;
-	      media_pressao += matriz[i][dia][h].pressao;
-	      media_umidade += matriz[i][dia][h].umidade;
-	      media_prec += matriz[i][dia][h].prec;
+	      media_temp += matriz[i][dia - 1][h].temp;
+	      media_pressao += matriz[i][dia - 1][h].pressao;
+	      media_umidade += matriz[i][dia - 1][h].umidade;
+	      media_prec += matriz[i][dia - 1][h].prec;
 	    }
 	    fprintf(file,"CIDADE: %s  Temperatura: %.2f  Pressao: %.2f  Umidade: %.2f  Precipitacao: %.2f \n", sigla, media_temp/24, media_pressao/24, media_umidade/24, media_prec/24);
-	  
+	    media_temp = 0;
+	    media_pressao = 0;
+	    media_umidade = 0;
+	    media_prec = 0;
 	}
 	fclose(file);
 
