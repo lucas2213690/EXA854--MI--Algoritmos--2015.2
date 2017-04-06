@@ -1,4 +1,4 @@
-# MI-Algoritmo e Programação 1  UEFS#
+# EXA854--MI--Algoritmos #
 ## Esse repositório contêm meus códigos referentes ao PBL de MI - Algoritmo I do ano de 2015.2 ##
 
 1.[Descritivo do Problema](https://drive.google.com/file/d/0Bx1VVgelLTO_YkJqRkpFNnRWT2c/view?usp=sharing) Sem relatório e usou pseudocódigo
